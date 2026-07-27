@@ -69,41 +69,35 @@
 # =============================================================================
 
 def add(a, b):
-    # Returns the sum of a and b.
     return a + b
 
 
 def subtract(a, b):
-    # Returns the difference of a and b.
     return a - b
 
 
 def multiply(a, b):
-    # Returns the product of a and b.
     return a * b
 
 
 def divide(a, b):
-    # Returns the quotient of a and b rounded to 2 decimal places and none if b is 0.
     if b == 0:
         return None
     return round(a / b, 2)
 
 
 def modulus(a, b):
-    # Returns the remainder of a divided by b and none if b is 0.
     if b == 0:
         return None
     return a % b
 
 
 def power(a, b):
-    # Returns a raised to the power of b.
     return a ** b
 
 
 def print_menu():
-    # Displays the main calculator menu.
+
     print(f"""============================
      SIMPLE CALCULATOR")
     ============================
@@ -122,12 +116,10 @@ def main():
         print_menu()
         choice = input("Select an operation (1-7): ").strip()
 
-        # Handle Quit option
         if choice == '7':
             print("Goodbye!")
             break
 
-        # Validate menu choice before asking for numbers
         if choice not in ['1', '2', '3', '4', '5', '6']:
             print("Invalid choice. Please select a number between 1 and 7.\n")
             continue
@@ -139,7 +131,6 @@ def main():
             print("Error: Please enter valid numeric values.\n")
             continue
 
-        # Format integer values cleanly (e.g., 10 instead of 10.0 for neat output)
         n1_str = int(num1) if num1.is_integer() else num1
         n2_str = int(num2) if num2.is_integer() else num2
 
@@ -166,7 +157,6 @@ def main():
             if res is None:
                 print("Error: Cannot divide by zero.\n")
             else:
-                # Keep float formatting for division matching expected example (e.g., 3.33)
                 print(f"Result: {n1_str} / {n2_str} = {res}\n")
 
         elif choice == '5':
@@ -185,6 +175,5 @@ def main():
             print(f"Result: {n1_str} ** {n2_str} = {res_str}\n")
 
 
-# Main execution block
 if __name__ == "__main__":
     main()
