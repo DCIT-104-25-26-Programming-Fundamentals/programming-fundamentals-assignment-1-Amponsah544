@@ -91,7 +91,6 @@
 # =============================================================================
 
 def print_menu():
-    # Displays the main menu options.
     print(f"""================================
                 STUDENT RECORD SYSTEM MENU")
               ==================================
@@ -103,7 +102,6 @@ def print_menu():
 
 
 def add_student(students):
-    # Prompts the user for student details and adds a new dictionary record to the students list.
     name = input("Student name: ").strip()
     student_id = input("Student ID: ").strip()
 
@@ -117,13 +115,11 @@ def add_student(students):
     for i in range(1, num_scores + 1):
         try:
             score = float(input(f"Enter score {i}: "))
-            # Format integer inputs neatly
             scores.append(int(score) if score.is_integer() else score)
         except ValueError:
             print("Invalid input, defaulting score to 0.")
             scores.append(0)
 
-    # Create dictionary and append to main list
     student = {
         "name": name,
         "id": student_id,
@@ -134,7 +130,6 @@ def add_student(students):
 
 
 def display_all_students(students):
-    # Prints a formatted table of all students and their averages.
     if not students:
         print("No students have been added yet.\n")
         return
@@ -153,7 +148,6 @@ def display_all_students(students):
 
 
 def calculate_student_average(students):
-    # Searches for a student by ID, calculates their average, and prints it.
     search_id = input("Enter student ID: ").strip()
 
     for s in students:
@@ -169,7 +163,6 @@ def calculate_student_average(students):
 
 
 def main():
-    # Store all student records in a list of dictionaries
     students = []
 
     while True:
@@ -189,6 +182,5 @@ def main():
             print("Invalid choice. Please select between 1 and 4.\n")
 
 
-# Main execution block
 if __name__ == "__main__":
     main()
