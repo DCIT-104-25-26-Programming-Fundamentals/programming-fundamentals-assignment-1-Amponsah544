@@ -55,3 +55,45 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def generate_single_table(digit):
+    print(f"Multiplication Table for {digit}:")
+    for i in range(1, 13):
+        print(f"{digit}  x  {i:<2} =  {digit * i}")
+
+
+def generate_range_tables(number):
+
+    for num in range(1, number + 1):
+        generate_single_table(num)
+        if num < number:
+            print("-" * 27)
+
+
+def main():
+    print(f"=== PART A: Single Multiplication Table ===")
+    try:
+        num = int(input("Enter a number: "))
+        if num <= 0:
+            print("Error: Input must be a positive integer.\n")
+            return
+        generate_single_table(num)
+
+    except ValueError:
+        print(f"Error: Invalid input. Please enter a valid integer. ")
+        return
+
+    print(f"  + = * 40 +  ")
+
+    print("=== PART B: Tables from 1 to N ===")
+    try:
+        n = int(input("Enter a number N: "))
+        if n <= 0:
+            print("Error: N must be a positive integer.")
+            return
+        generate_range_tables(n)
+    except ValueError:
+        print("Error: Invalid input. Please enter a valid integer.")
+
+
+if __name__ == "__main__":
+    main()
