@@ -46,10 +46,7 @@
 # =============================================================================
 
 def grade(score):
-    """ Validates score range and returns the letter grade.
-    Returns None if score is invalid (not between 0 and 100)."""
 
-    # Validation check for range 0–100
     if score < 0 or score > 100:
         return None
     elif score >= 80:
@@ -63,8 +60,6 @@ def grade(score):
     else:
         return 'F'
 
-
-# Main execution block
 
 if __name__ == "__main__":
     score = float(input("Enter student score (0-100): "))
