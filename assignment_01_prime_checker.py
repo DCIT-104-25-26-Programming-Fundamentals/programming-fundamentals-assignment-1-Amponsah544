@@ -45,7 +45,7 @@ def num_prime(num):
 
 
 if __name__ == "__main__":
-    
+
     input = int(input("Enter a number: "))
 
 if num_prime(input):
