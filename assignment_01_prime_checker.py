@@ -35,25 +35,19 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
-# Function for checking prime numbers.
 def is_prime(num):
-    # Returns true if prime, otherwise false.
     if num < 2:
         return False
-    # Checking for factors of 2 up to num -1 or square of a number for efficiency.
-    for j in range(2, int(num ** 0.5) + 1):
+    for j in range(2, num):
         if num % j == 0:
             return False
     return True
 
 
-# Main execution block
 if __name__ == "__main__":
-    # Get user input
-
+    
     User_input = int(input("Enter a number: "))
 
-# Checks if a given number is prime.
 if is_prime(User_input):
     print(f"{User_input} is a prime number.")
 else:
