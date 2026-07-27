@@ -59,4 +59,102 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def print_matrix(matrix):
+    for row in matrix:
+        for val in row:
+            print(val, end="\t")
+        print()
 
+
+def read_matrix(rows, cols):
+    matrix = []
+    for i in range(rows):
+        while True:
+            row_str = input(f"Enter row {i + 1}: ")
+            parts = row_str.split()
+
+            if len(parts) != cols:
+                print(f"Expected exactly {cols} numbers, but got {len(parts)}. Try again.")
+                continue
+
+            row = []
+            for p in parts:
+                row.append(int(p))
+            matrix.append(row)
+            break
+    return matrix
+
+
+def part_a_transpose():
+    print("--- PART A: Transpose a Matrix ---")
+    m = int(input("Enter number of rows: "))
+    n = int(input("Enter number of columns: "))
+
+    matrix = read_matrix(m, n)
+
+    transposed = []
+    for col_idx in range(n):
+        new_row = []
+        for row_idx in range(m):
+            new_row.append(matrix[row_idx][col_idx])
+        transposed.append(new_row)
+
+    print("\nOriginal Matrix:")
+    print_matrix(matrix)
+
+    print("\nTransposed Matrix:")
+    print_matrix(transposed)
+
+
+def part_b_add():
+    print("\n--- PART B: Add Two Matrices ---")
+    m = int(input("Enter number of rows: "))
+    n = int(input("Enter number of columns: "))
+
+    print("Enter Matrix A:")
+    matrix_a = read_matrix(m, n)
+
+    print("Enter Matrix B:")
+    matrix_b = read_matrix(m, n)
+
+    result = []
+    for i in range(m):
+        row = []
+        for j in range(n):
+            row.append(matrix_a[i][j] + matrix_b[i][j])
+        result.append(row)
+
+    print("\nMatrix A + Matrix B:")
+    print_matrix(result)
+
+
+def part_c_multiply():
+    print("\n--- PART C: Multiply Two Matrices ---")
+    m = int(input("Enter number of rows for Matrix A: "))
+    n = int(input("Enter number of columns for Matrix A / rows for Matrix B: "))
+    p = int(input("Enter number of columns for Matrix B: "))
+
+    print("Enter Matrix A:")
+    matrix_a = read_matrix(m, n)
+
+    print("Enter Matrix B:")
+    matrix_b = read_matrix(n, p)
+
+    result = []
+    for i in range(m):
+        row = []
+        for j in range(p):
+            sum_val = 0
+            for k in range(n):
+                sum_val += matrix_a[i][k] * matrix_b[k][j]
+            row.append(sum_val)
+        result.append(row)
+
+    print("\nMatrix A x Matrix B:")
+    print_matrix(result)
+
+
+if __name__ == "__main__":
+    part_a_transpose()
+    part_b_add()
+    part_c_multiply()
