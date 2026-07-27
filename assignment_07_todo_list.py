@@ -80,7 +80,7 @@
 # =============================================================================
 
 def print_menu():
-    #Displays the to-do list menu options.
+    # Displays the to-do list menu options.
     print(f"""============================")
          TO-DO LIST MENU")
     ============================")
@@ -102,7 +102,7 @@ def add_task(tasks):
 
 
 def view_tasks(tasks):
-# Prints all tasks numbered starting from 1.
+    # Prints all tasks numbered starting from 1.
     if not tasks:
         print("Your to-do list is empty.\n")
         return
@@ -114,7 +114,7 @@ def view_tasks(tasks):
 
 
 def delete_task(tasks):
-# Displays current tasks, asks user for task number to delete,and removes it if valid.
+    # Displays current tasks, asks user for task number to delete,and removes it if valid.
 
     if not tasks:
         print("No tasks to delete.\n")
@@ -127,7 +127,7 @@ def delete_task(tasks):
         task_num = int(input("Enter task number to delete: "))
 
         # Convert 1-based index to 0-based Python list index
-        
+
         if 1 <= task_num <= len(tasks):
             removed_task = tasks.pop(task_num - 1)
             print(f'Task "{removed_task}" has been removed.\n')
